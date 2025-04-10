@@ -3,19 +3,19 @@ package entities;
 public class Conta {
 		
 	private static final Integer AGENCIA_PADRAO = 01;
+	private static Integer SEQUENCIAL = 01;
 	
 	protected String nomeTitular;
 	protected Integer agencia = AGENCIA_PADRAO;
-	
+	protected Integer numero = SEQUENCIAL;	
 	protected Double saldo;
 	
-	public Conta(String nomeTitular, Integer agencia, Integer numero) {
+	public Conta(String nomeTitular) {
 		this.nomeTitular = nomeTitular;
-		this.agencia = AGENCIA_PADRAO;
 	}
-	public Conta(String nomeTitular, Integer agencia, Integer numero, Double saldo) {
+	
+	public Conta(String nomeTitular, double saldo) {
 		this.nomeTitular = nomeTitular;
-		this.agencia = AGENCIA_PADRAO;
 		this.saldo = saldo;
 	}
 
