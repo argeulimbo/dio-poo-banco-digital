@@ -1,24 +1,31 @@
 package entities;
 
 public class Conta {
-		
-	private static final Integer AGENCIA_PADRAO = 01;
-	private static Integer SEQUENCIAL = 01;
+
+	private static Integer SEQUENCIAL = 10010;
 	
 	protected String nomeTitular;
-	protected Integer agencia = AGENCIA_PADRAO;
-	protected Integer numero = SEQUENCIAL;	
-	protected Double saldo;
+	protected String cpf;
+	protected Integer numero = SEQUENCIAL++;	
+	protected double saldo;
 	
-	public Conta(String nomeTitular) {
+	protected Cliente titular;
+	
+	public Conta(String nomeTitular, String cpf) {
 		this.nomeTitular = nomeTitular;
+		this.cpf = cpf;
 	}
 	
-	public Conta(String nomeTitular, double saldo) {
+	public Conta(String nomeTitular, String cpf, double saldo) {
 		this.nomeTitular = nomeTitular;
+		this.cpf = cpf;
 		this.saldo = saldo;
 	}
 
+	public String getCpf() {
+		return cpf;
+	}
+	
 	public String getNomeTitular() {
 		return nomeTitular;
 	}
@@ -27,12 +34,9 @@ public class Conta {
 		this.nomeTitular = nomeTitular;
 	}
 
-	public Integer getAgencia() {
-		return agencia;
-	}
-
-	public void setAgencia(Integer agencia) {
-		this.agencia = agencia;
+	
+	public Integer getNumero() {
+		return numero;
 	}
 	
 	public Double getSaldo() {
@@ -56,4 +60,5 @@ public class Conta {
 			throw new IllegalArgumentException("ERROR: Saldo insuficiente para realizar a transferência.");
 		}
 	}
+	
 }
