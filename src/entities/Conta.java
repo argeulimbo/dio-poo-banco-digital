@@ -48,7 +48,13 @@ public class Conta {
 	}
 	
 	public void saque(double amount) {
-		this.saldo -= amount;
+		if (this.saldo >= amount) {
+			this.saldo -= amount;	
+		}
+		else {
+			throw new IllegalArgumentException("ERROR: Saldo insuficiente para realizar o saque.");
+			}
+		
 	}
 	
 	public void transferencia(Conta contaDestino, double amount) {
